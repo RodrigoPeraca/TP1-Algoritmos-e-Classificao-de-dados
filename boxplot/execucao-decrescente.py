@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-# Dados em milisegundos
 dados = {
     "BubbleSort": [274288300, 237476300, 122811000, 129984900, 121904300, 119170800, 138220000, 123096400, 120583500, 118173400, 142172800, 90610500, 88282900, 88203400, 88730000, 89012400, 103744800, 89044200, 89756800, 89162300],
     "InsertionSort": [127900300, 114658100, 116887400, 82149500, 72113900, 70728500, 72634800, 70948500, 69299700, 69719400, 84130600, 76056500, 70448700, 70703800, 71039400, 69854200, 73768700, 70585700, 70699600, 69535500],
@@ -25,9 +24,8 @@ for alg, tempos in dados.items():
             df,
             pd.DataFrame({"Algoritmo": [alg],
                           "Tamanho": [tamanho],
-                          "Tempo (ms)": [t / 1e6]})
+                          "Tempo (ms)": [t / 1e6]})  # converte ns → ms
         ], ignore_index=True)
-
 
 ordem = [
     "BubbleSort",
@@ -41,7 +39,6 @@ ordem = [
     "CountingSort",
     "RadixSort"
 ]
-
 
 sns.set(style="whitegrid", palette="Set2")
 plt.figure(figsize=(12, 6))
